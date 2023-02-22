@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>語者判別實驗表單 1</title>
+    <title>Pair Comparison</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
@@ -13,23 +13,17 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             
-    <h1 class="display-4">語者判別實驗</h1>
-    <p class="lead">判斷兩份語音是否出自同一個人</p>
+    <h1 class="display-4">화자 유사도 테스트</h1>
+    <p class="lead">두 음성 샘플이 같은 사람의 것인지 평가</p>
     <hr class="my-4">
     <p>
-        感謝您參與本次實驗！
+        실험에 참여해주셔서 감사합니다! 이어폰보다는 헤드셋을 사용할 것을 권장드리며, Windows나 Mac의 기본 음성 플레이어를 사용할 것을 추천드립니다.
     </p>
     <p>
-        在這個實驗中，我們使用電腦合成及轉換人類語音。每一題都有兩個音檔，請使用耳機聽完後，根據兩個音檔的語者相似度作答（僅考慮說話者的音色，不須考慮語句內容）。
+        각 질문의 음성 샘플 2개를 듣고, 두 샘플의 화자의 유사도에 대해 답하십시오. 문장의 내용이 아닌 화자의 음색만 고려해주시기 바랍니다.
     </p>
     <p>
-        評分標準為：
-        <ul>
-            <li>確定是同一個語者 (same, absolutely sure)</li>
-            <li>不大確定，但傾向認為是同一個語者 (same, not sure)</li>
-            <li>不大確定，但傾向認為是不同語者 (different, not sure)</li>
-            <li>確定是不同語者 (different, absolutely sure)</li>
-        </ul>
+        1~5점 사이의 점수로 평가하되, 화자가 비슷할수록 큰 점수를 다를수록 작은 점수를 주시면 됩니다(완전 동일: 5점/완전 상이: 1점)
     </p>
 
         </div>
@@ -38,19 +32,19 @@
     <div class="container" id="form_container">
         <form id="theForm" action="http://localhost:8888" method="GET" onsubmit="return preventRepeatedSubmission();">
             <div class="form-group">
-                <label for="name">姓名：</label>
+                <label for="name">성명：</label>
                 <input class="form-control" type="text" inputmode="text" name="name" required>
-                <small class="form-text text-muted">必填*</small>
+                <small class="form-text text-muted">닉네임도 가능*</small>
             </div>
             <div class="form-group">
-                <label for="mail">電子郵件：</label>
+                <label for="mail">이메일：</label>
                 <input class="form-control" type="text" inputmode="email" placeholder="account@example.com" name="mail">
-                <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
+                <small class="form-text text-muted">필수는 아닙니다*</small>
             </div>
             
     
         <div class="card form-group">
-            <div class="card-header">問題 1</div>
+            <div class="card-header">Q1</div>
             <div class="card-body">
                 
                     <p>
@@ -67,19 +61,23 @@
                 
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1_1" value="1" required>
-                    <label class="form-check-label" for="q1_1">確定是同一個語者 (same, absolutely sure)</label>
+                    <label class="form-check-label" for="q1_1">1점</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1_2" value="2" required>
-                    <label class="form-check-label" for="q1_2">不大確定，但傾向認為是同一個語者 (same, not sure)</label>
+                    <label class="form-check-label" for="q1_2">2점</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1_3" value="3" required>
-                    <label class="form-check-label" for="q1_3">不大確定，但傾向認為是不同語者 (different, not sure)</label>
+                    <label class="form-check-label" for="q1_3">3점</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1_4" value="4" required>
-                    <label class="form-check-label" for="q1_4">確定是不同語者 (different, absolutely sure)</label>
+                    <label class="form-check-label" for="q1_4">4점</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q1" id="q1_5" value="5" required>
+                    <label class="form-check-label" for="q1_4">5점</label>
                 </div>
             </div>
         </div>
@@ -102,19 +100,23 @@
                 
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q2" id="q2_1" value="1" required>
-                    <label class="form-check-label" for="q2_1">確定是同一個語者 (same, absolutely sure)</label>
+                    <label class="form-check-label" for="q2_1">1점(same, absolutely sure)</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q2" id="q2_2" value="2" required>
-                    <label class="form-check-label" for="q2_2">不大確定，但傾向認為是同一個語者 (same, not sure)</label>
+                    <label class="form-check-label" for="q2_2">2점(same, not sure)</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q2" id="q2_3" value="3" required>
-                    <label class="form-check-label" for="q2_3">不大確定，但傾向認為是不同語者 (different, not sure)</label>
+                    <label class="form-check-label" for="q2_3">3점(different, not sure)</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q2" id="q2_4" value="4" required>
-                    <label class="form-check-label" for="q2_4">確定是不同語者 (different, absolutely sure)</label>
+                    <label class="form-check-label" for="q2_4">4점</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q2" id="q2_5" value="5" required>
+                    <label class="form-check-label" for="q2_4">5점</label>
                 </div>
             </div>
         </div>
@@ -124,13 +126,13 @@
             <input type="text" name="thank" value="再次謝謝您參與本次實驗！" hidden>
             <input class="btn btn-info btn-lg" type="submit" value="提交結果" id="submitBtn">
             <p class="text-muted">
-                <small>如果提交結果時發現繳不出去，請回頭檢查是否有填入姓名、是否每一題都有作答到，謝謝。</small>
+                <small>결과를 제출할 수 없는 경우 돌아가서 모든 질문에 답을 기입했는지 확인 바랍니다.</small>
             </p>
         </form>
     </div>
 
     <div class="container" style="padding-top: 60px;">
-        <p class="text-center text-muted">&copy; 台大語音實驗室</p>
+        <p class="text-center text-muted">&copy; E3-VITS</p>
     </div>
 
     <script type="text/javascript">
