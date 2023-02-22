@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>MOS 實驗表單 1</title>
+    <title>Sample Rating</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
@@ -13,22 +13,20 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             
-    <h1 class="display-4">MOS 實驗</h1>
-    <p class="lead">合成語音品質評估</p>
+    <h1 class="display-4">음질 테스트</h1>
+    <p class="lead">음성 샘플이 자연스러운지 평가</p>
     <hr class="my-4">
     <p>
-        感謝您參與本次實驗！
+        실험에 참여해주셔서 감사합니다! 이어폰보다는 헤드셋을 사용할 것을 권장드리며, Windows나 Mac의 기본 음성 플레이어를 사용할 것을 추천드립니다.
     </p>
     <p>
-        在這個實驗中，我們使用電腦合成人類語音。
-        以下的音檔中，包含了真實的錄音以及合成的聲音，並且每句話都有附上文字稿。
-        請受試者使用耳機聆聽，並根據每個音檔的品質，給予以下幾種評分：
+        각 질문의 음성 샘플을 듣고, 발화가 얼마나 듣기에 얼마나 자연스러운지 답하십시오. 1~5점 사이의 점수로 평가하되, 음질이 좋을 수록 큰 점수를 주시면 됩니다.
         <ul>
-            <li>１（非常不好）</li>
-            <li>２（不好）</li>
-            <li>３（普通）</li>
-            <li>４（好）</li>
-            <li>５（非常好）</li>
+            <li>1점 (매우 나쁨)</li>
+            <li>２（나쁨）</li>
+            <li>３（보통）</li>
+            <li>４（좋음）</li>
+            <li>５（매우 좋음）</li>
         </ul>
     </p>
 
@@ -38,19 +36,19 @@
     <div class="container" id="form_container">
         <form id="theForm" action="http://localhost:8888" method="GET" onsubmit="return preventRepeatedSubmission();">
             <div class="form-group">
-                <label for="name">姓名：</label>
+                <label for="name">성명：</label>
                 <input class="form-control" type="text" inputmode="text" name="name" required>
-                <small class="form-text text-muted">必填*</small>
+                <small class="form-text text-muted">닉네임도 가능*</small>
             </div>
             <div class="form-group">
-                <label for="mail">電子郵件：</label>
+                <label for="mail">이메일：</label>
                 <input class="form-control" type="text" inputmode="email" placeholder="account@example.com" name="mail">
-                <small class="form-text text-muted">如果中獎，我們將以電子郵件通知您</small>
+                <small class="form-text text-muted">필수는 아닙니다*</small>
             </div>
             
     
         <div class="card form-group">
-            <div class="card-header">問題 1</div>
+            <div class="card-header">Q1</div>
             <div class="card-body">
                 <p>
                     <audio controls src="wavs/test1.wav">
@@ -58,30 +56,30 @@
                     </audio>
                 </p>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q1" id="q1_1" value="5" required>
-                    <label class="form-check-label" for="q1_1">５（非常好）</label>
+                    <input class="form-check-input" type="radio" name="q1" id="q1_1" value="1" required>
+                    <label class="form-check-label" for="q1_1">1점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q1" id="q1_2" value="4" required>
-                    <label class="form-check-label" for="q1_2">４（好）</label>
+                    <input class="form-check-input" type="radio" name="q1" id="q1_2" value="2" required>
+                    <label class="form-check-label" for="q1_2">2점</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q1" id="q1_3" value="3" required>
-                    <label class="form-check-label" for="q1_3">３（普通）</label>
+                    <label class="form-check-label" for="q1_3">3점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q1" id="q1_4" value="2" required>
-                    <label class="form-check-label" for="q1_4">２（不好）</label>
+                    <input class="form-check-input" type="radio" name="q1" id="q1_4" value="4" required>
+                    <label class="form-check-label" for="q1_4">4점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q1" id="q1_5" value="1" required>
-                    <label class="form-check-label" for="q1_5">１（非常不好）</label>
+                    <input class="form-check-input" type="radio" name="q1" id="q1_5" value="5" required>
+                    <label class="form-check-label" for="q1_5">5점</label>
                 </div>
             </div>
         </div>
     
         <div class="card form-group">
-            <div class="card-header">問題 2</div>
+            <div class="card-header">Q2</div>
             <div class="card-body">
                 <p>
                     <audio controls src="wavs/test2.wav">
@@ -89,24 +87,24 @@
                     </audio>
                 </p>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q2" id="q2_1" value="5" required>
-                    <label class="form-check-label" for="q2_1">５（非常好）</label>
+                    <input class="form-check-input" type="radio" name="q2" id="q2_1" value="1" required>
+                    <label class="form-check-label" for="q2_1">1점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q2" id="q2_2" value="4" required>
-                    <label class="form-check-label" for="q2_2">４（好）</label>
+                    <input class="form-check-input" type="radio" name="q2" id="q2_2" value="2" required>
+                    <label class="form-check-label" for="q2_2">2점</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="q2" id="q2_3" value="3" required>
-                    <label class="form-check-label" for="q2_3">３（普通）</label>
+                    <label class="form-check-label" for="q2_3">3점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q2" id="q2_4" value="2" required>
-                    <label class="form-check-label" for="q2_4">２（不好）</label>
+                    <input class="form-check-input" type="radio" name="q2" id="q2_4" value="4" required>
+                    <label class="form-check-label" for="q2_4">4점</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="q2" id="q2_5" value="1" required>
-                    <label class="form-check-label" for="q2_5">１（非常不好）</label>
+                    <input class="form-check-input" type="radio" name="q2" id="q2_5" value="5" required>
+                    <label class="form-check-label" for="q2_5">5점</label>
                 </div>
             </div>
         </div>
@@ -114,15 +112,15 @@
 
             <input type="text" name="formid" value="1" hidden>
             <input type="text" name="thank" value="再次謝謝您參與本次實驗！" hidden>
-            <input class="btn btn-info btn-lg" type="submit" value="提交結果" id="submitBtn">
+            <input class="btn btn-info btn-lg" type="submit" value="제출" id="submitBtn">
             <p class="text-muted">
-                <small>如果提交結果時發現繳不出去，請回頭檢查是否有填入姓名、是否每一題都有作答到，謝謝。</small>
+                <small>결과를 제출할 수 없는 경우 돌아가서 모든 질문에 답을 기입했는지 확인 바랍니다.</small>
             </p>
         </form>
     </div>
 
     <div class="container" style="padding-top: 60px;">
-        <p class="text-center text-muted">&copy; 台大語音實驗室</p>
+        <p class="text-center text-muted">&copy; E3-VITS</p>
     </div>
 
     <script type="text/javascript">
